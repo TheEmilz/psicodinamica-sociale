@@ -672,16 +672,60 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: '#f5f5f5', padding: '56px 24px 44px', textAlign: 'center', position: 'relative', zIndex: 6 }}>
-        <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.1em', color: '#9ca3af' }}>
-          © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a>
-        </p>
-        <p style={{ margin: '10px 0 0', fontSize: '11px', letterSpacing: '0.08em', color: '#b8b8b8' }}>
-          Sito web realizzato da{' '}
-          <a href="https://epixiom.io" target="_blank" rel="noopener noreferrer" style={{ color: '#7b6ef2', textDecoration: 'none', fontWeight: 600 }}>
-            Epixiom
-          </a>
-        </p>
+      <footer style={{ background: '#f5f5f5', padding: '8px 20px 28px', position: 'relative', zIndex: 6 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            background: 'rgba(255,255,255,0.7)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(99,102,241,0.14)',
+            borderRadius: '28px',
+            boxShadow: '0 8px 32px rgba(99,102,241,0.08)',
+            padding: '36px 32px 30px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '18px',
+            textAlign: 'center',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontWeight: 600, color: '#2f2f2f', lineHeight: 1 }}>
+              Psicodinamica Sociale
+            </span>
+            <span style={{ fontSize: '10px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#9ca3af' }}>
+              Psicoterapia psicodinamica online
+            </span>
+          </div>
+
+          <nav style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 22px' }}>
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home') }} style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', textDecoration: 'none', cursor: 'pointer' }}>Home</a>
+            <a href="#cos-e" onClick={(e) => { e.preventDefault(); scrollToSection('#cos-e') }} style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', textDecoration: 'none', cursor: 'pointer' }}>Cos&apos;è</a>
+            <a href="#come-funziona" onClick={(e) => { e.preventDefault(); scrollToSection('#come-funziona') }} style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', textDecoration: 'none', cursor: 'pointer' }}>Come funziona</a>
+            <a href="#prenota" onClick={(e) => { e.preventDefault(); scrollToSection('#prenota') }} style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', textDecoration: 'none', cursor: 'pointer' }}>Prenota</a>
+            <a href="#/privacy" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', textDecoration: 'none' }}>Privacy</a>
+          </nav>
+
+          <div style={{ width: '100%', maxWidth: '320px', height: '1px', background: 'rgba(99,102,241,0.12)' }} />
+
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+            <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.06em', color: '#9ca3af' }}>
+              © 2026 Psicodinamica Sociale
+            </p>
+            <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.06em', color: '#b8b8b8' }}>
+              Sito web realizzato da{' '}
+              <a href="https://epixiom.io" target="_blank" rel="noopener noreferrer" style={{ color: '#7b6ef2', textDecoration: 'none', fontWeight: 600 }}>
+                Epixiom
+              </a>
+            </p>
+          </div>
+        </motion.div>
       </footer>
     </div>
   )
