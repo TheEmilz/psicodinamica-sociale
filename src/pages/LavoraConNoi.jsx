@@ -104,18 +104,6 @@ export default function LavoraConNoi() {
           Lavora con Noi
         </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '48px' }}
-        >
-          <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
-            Il progetto nasce con l'intenzione di crescere, e possono aprirsi spazi per nuove collaborazioni. Se sei uno psicoterapeuta di formazione psicodinamica con almeno dieci anni di esperienza clinica, un percorso di almeno 5 anni di analisi personale e una pratica continuativa di supervisione, puoi inviare la tua candidatura tramite il modulo qui sotto.
-          </p>
-          <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
-            Ciò che cerchiamo non si esaurisce nella competenza tecnica. Crediamo che fare bene questo lavoro significhi prima di tutto averlo esperito su se stessi — che la psicoterapia non sia soltanto un mestiere, ma un modo di stare nel mondo e in relazione. L'analisi personale, in questo senso, non è un requisito formale: è la condizione che rende possibile tutto il resto. Questo non è un progetto commerciale. Ai professionisti che sceglieranno di aderire non verrà trattenuta alcuna percentuale sul compenso delle sedute. L'obiettivo è unicamente quello di rendere accessibile una psicoterapia di orientamento psicodinamico a chi la cerca, e di costruire una comunità professionale che condivida questa visione. Se ti riconosci in questo spirito, saremo felici di ricevere la tua candidatura di qualità a chi non potrebbe altrimenti permettersela. Le disponibilità sono limitate. Qualora non vi fossero posti aperti al momento della candidatura, il nominativo verrà inserito in una lista e il professionista verrà contattato non appena si renderà disponibile uno spazio.
-          </p>
-        </motion.div>
-
         {/* Form candidatura */}
         <motion.div
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.14 }}
