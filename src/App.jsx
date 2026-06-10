@@ -672,7 +672,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: '#f5f5f5', padding: '28px 24px 36px', textAlign: 'center', position: 'relative', zIndex: 6 }}>
+      <footer style={{ background: '#f5f5f5', padding: '56px 24px 44px', textAlign: 'center', position: 'relative', zIndex: 6 }}>
         <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.1em', color: '#9ca3af' }}>
           © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a>
         </p>
