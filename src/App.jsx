@@ -587,18 +587,19 @@ export default function App() {
               Si parte da un primo colloquio libero: nessuna domanda giusta o sbagliata, nessuna pressione. Si racconta la propria storia e insieme si valuta il percorso più adeguato. La frequenza delle sedute viene concordata.{' '}
               <Link to="/come-funziona" style={{ color: '#4f6ae8', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
             </motion.p>
-            <motion.div variants={itemSpring} style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)', marginBottom: '16px', width: '100%' }}>
-              <p style={{ fontSize: '24px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>40€ a seduta · 50 minuti</p>
-            </motion.div>
-            <motion.div variants={itemSpring} className="flex gap-4 flex-wrap">
-              <motion.a
-                href="#prenota"
-                onClick={(e) => { e.preventDefault(); scrollToSection('#prenota') }}
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 text-white hover:opacity-80 transition-opacity"
-                style={{ borderRadius: '24px', background: '#4f6ae8' }}
-              >
-                Prenota ora — 40€ a seduta
-              </motion.a>
+            <motion.div variants={itemSpring} className="flex flex-col gap-3" style={{ width: '100%' }}>
+              <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia individuale</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>40€ a seduta · 50 minuti</p>
+              </div>
+              <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia di coppia</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+              </div>
+              <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
+                <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia famigliare</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+              </div>
             </motion.div>
           </div>
         </ScrollReveal>
