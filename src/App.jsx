@@ -676,6 +676,12 @@ export default function App() {
         <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.1em', color: '#9ca3af' }}>
           © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a>
         </p>
+        <p style={{ margin: '10px 0 0', fontSize: '11px', letterSpacing: '0.08em', color: '#b8b8b8' }}>
+          Sito web realizzato da{' '}
+          <a href="https://epixiom.io" target="_blank" rel="noopener noreferrer" style={{ color: '#7b6ef2', textDecoration: 'none', fontWeight: 600 }}>
+            Epixiom
+          </a>
+        </p>
       </footer>
     </div>
   )
