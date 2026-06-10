@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Header from './components/Header'
@@ -304,7 +304,55 @@ function BookingSection() {
   )
 }
 
+// ─── LogoDoor: porta del logo che si chiude in prospettiva al click ───────────
+// Anima i vertici del poligono (SVG è 2D: simuliamo la prospettiva spostando
+// il bordo libero della porta da "scorciato" a "chiuso a filo").
+const DOOR_OPEN = [[55.18, 30.06], [43.37, 33.18], [43.37, 57.81], [55.34, 60.61]]
+const DOOR_CLOSED = [[55.18, 30.06], [30.85, 30.06], [30.85, 60.61], [55.34, 60.61]]
+
+function LogoDoor({ closed, onToggle }) {
+  const [pts, setPts] = useState(closed ? DOOR_CLOSED : DOOR_OPEN)
+  const rafRef = useRef(null)
+  const ptsRef = useRef(pts)
+  ptsRef.current = pts
+
+  useEffect(() => {
+    const from = ptsRef.current.map((p) => [...p])
+    const to = closed ? DOOR_CLOSED : DOOR_OPEN
+    const duration = 650
+    const start = performance.now()
+    const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration)
+      const e = ease(t)
+      setPts(from.map((p, i) => [p[0] + (to[i][0] - p[0]) * e, p[1] + (to[i][1] - p[1]) * e]))
+      if (t < 1) rafRef.current = requestAnimationFrame(tick)
+    }
+    cancelAnimationFrame(rafRef.current)
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [closed])
+
+  const ptStr = pts.map((p) => `${p[0]},${p[1]}`).join(' ')
+  return (
+    <>
+      <polygon className="lp-cls-1" points={ptStr} />
+      <rect
+        x="30.85"
+        y="30.06"
+        width="24.33"
+        height="30.55"
+        fill="transparent"
+        style={{ cursor: 'pointer' }}
+        onClick={(e) => { e.stopPropagation(); e.preventDefault(); onToggle() }}
+      />
+    </>
+  )
+}
+
 export default function App() {
+  const [doorClosed, setDoorClosed] = useState(false)
   return (
     <div style={{ background: '#f5f5f5', minHeight: '100vh' }}>
       <Header />
@@ -360,8 +408,39 @@ export default function App() {
           </motion.p>
           <motion.h1
             variants={itemSpring}
-            className="mb-5 text-center" style={{ lineHeight: '1.02', fontSize: 'clamp(2.4rem, 11vw, 6rem)' }}
+            className="mb-5 text-center flex items-center justify-center gap-7" style={{ lineHeight: '1.02', fontSize: 'clamp(2.4rem, 11vw, 6rem)' }}
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 87.27 72.58"
+              role="img"
+              aria-label="Logo Psicoterapia Psicodinamica Sociale"
+              className="logo-rainbow"
+              style={{ height: '2.1em', width: 'auto', flexShrink: 0, transform: 'translate(-10px, -14px)' }}
+            >
+              <defs>
+                <style>{`
+                  .lp-cls-1 { fill: #0900aa; }
+                  .lp-cls-2 { fill: #d92a2c; }
+                  .lp-cls-2, .lp-cls-3 { stroke: #ff66d2; stroke-miterlimit: 10; stroke-width: .25px; }
+                  .lp-cls-3, .lp-cls-4 { fill: #bf4c9e; }
+                  .lp-cls-5 { fill: #ff66d2; }
+                  .lp-cls-bg { fill: #ffffff; }
+                `}</style>
+              </defs>
+              <rect className="lp-cls-bg" x="30.85" y="30.06" width="24.07" height="30.55" />
+              <polygon className="lp-cls-2 logo-star" points="5.93 30.06 4.32 33.52 .34 33.77 3.37 36.13 2.42 39.68 5.93 37.74 9.43 39.68 8.48 36.13 11.61 33.77 7.54 33.52 5.93 30.06" />
+              <g>
+                <polyline className="lp-cls-4" points="18.01 31.81 43.61 16.11 69.01 31.81 70.71 28.51 61.31 22.71 43.61 11.91 16.21 28.51" />
+                <polygon className="lp-cls-5" points="69.06 31.98 68.95 31.91 43.61 16.25 18.08 31.91 17.95 31.7 43.61 15.96 43.68 16 68.96 31.63 70.55 28.55 61.25 22.81 43.61 12.05 16.28 28.61 16.15 28.4 43.61 11.76 43.68 11.8 61.38 22.6 70.88 28.46 69.06 31.98" />
+              </g>
+              <polygon className="lp-cls-3" points="26.28 27.37 59.79 27.37 59.79 60.61 54.92 60.61 54.92 30.06 30.85 30.06 30.85 60.61 26.28 60.61 26.28 27.37" />
+              {/* Porta: si chiude in prospettiva al click */}
+              <LogoDoor closed={doorClosed} onToggle={() => setDoorClosed((v) => !v)} />
+              <path className="lp-cls-4" d="M43.62.73C25.76.68,8.49,10.81,3.73,24.92l-.6,1.99h3.11C9.55,17.89,20,2.36,43.62,2.31c17.13-.05,32.81,9.23,37.57,22.51l.53,1.57h2.58C81.32,14.53,67.56.73,43.62,0v.73Z" />
+              <path className="lp-cls-4" d="M43.82,71.78c17.86.06,35.13-10.99,39.89-26.38l.6-2.17h-3.11c-3.31,9.84-13.76,26.78-37.38,26.84-17.13.06-32.81-10.07-37.57-24.55l-.53-1.72h-2.58c2.98,12.93,16.74,27.99,40.68,28.79v-.8Z" />
+              <polygon className="lp-cls-2 logo-star" points="81.46 29.86 79.92 33.28 76.09 33.53 79 35.86 78.09 39.36 81.46 37.45 84.83 39.36 83.92 35.86 86.93 33.53 83.01 33.28 81.46 29.86" />
+            </svg>
             <span className="hero-name">Psicoterapia<br />Psicodinamica<br />Sociale</span>
           </motion.h1>
           <motion.p
