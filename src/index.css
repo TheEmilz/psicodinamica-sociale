@@ -48,7 +48,7 @@ body {
     drop-shadow(3px 4px 8px rgba(0, 0, 0, 0.28));
 }
 .logo-rainbow:hover {
-  transform: translate(-10px, -14px) scale(1.06);
+  transform: scale(1.06);
   animation: logo-hue 3s linear infinite;
 }
 @keyframes logo-hue {

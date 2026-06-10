@@ -390,7 +390,7 @@ export default function App() {
         <ScrollReveal className="flex flex-1 flex-col items-center justify-center max-w-2xl relative z-10" style={{ paddingTop: '88px', paddingBottom: '12px' }}>
           <motion.p
             variants={itemSpring}
-            className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4"
+            className="text-sm md:text-base font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase mb-4"
             style={{ color: '#b3175a' }}
           >
             Psicoterapia Psicodinamica ·{' '}
@@ -408,7 +408,7 @@ export default function App() {
           </motion.p>
           <motion.h1
             variants={itemSpring}
-            className="mb-5 text-center flex items-center justify-center gap-7" style={{ lineHeight: '1.02', fontSize: 'clamp(2.4rem, 11vw, 6rem)' }}
+            className="mb-5 text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-7" style={{ lineHeight: '1.02', fontSize: 'clamp(2rem, 9vw, 6rem)' }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -416,7 +416,7 @@ export default function App() {
               role="img"
               aria-label="Logo Psicoterapia Psicodinamica Sociale"
               className="logo-rainbow"
-              style={{ height: '2.1em', width: 'auto', flexShrink: 0, transform: 'translate(-10px, -14px)' }}
+              style={{ height: '2.1em', width: 'auto', flexShrink: 0 }}
             >
               <defs>
                 <style>{`
