@@ -429,7 +429,10 @@ export default function App() {
                 `}</style>
               </defs>
               <rect className="lp-cls-bg" x="30.85" y="30.06" width="24.07" height="30.55" />
-              <polygon className="lp-cls-2 logo-star" points="5.93 30.06 4.32 33.52 .34 33.77 3.37 36.13 2.42 39.68 5.93 37.74 9.43 39.68 8.48 36.13 11.61 33.77 7.54 33.52 5.93 30.06" />
+              <g className="logo-star-wrap">
+                <rect x="-1" y="28" width="14" height="14" fill="transparent" />
+                <polygon className="lp-cls-2 logo-star" points="5.93 30.06 4.32 33.52 .34 33.77 3.37 36.13 2.42 39.68 5.93 37.74 9.43 39.68 8.48 36.13 11.61 33.77 7.54 33.52 5.93 30.06" />
+              </g>
               <g>
                 <polyline className="lp-cls-4" points="18.01 31.81 43.61 16.11 69.01 31.81 70.71 28.51 61.31 22.71 43.61 11.91 16.21 28.51" />
                 <polygon className="lp-cls-5" points="69.06 31.98 68.95 31.91 43.61 16.25 18.08 31.91 17.95 31.7 43.61 15.96 43.68 16 68.96 31.63 70.55 28.55 61.25 22.81 43.61 12.05 16.28 28.61 16.15 28.4 43.61 11.76 43.68 11.8 61.38 22.6 70.88 28.46 69.06 31.98" />
@@ -439,7 +442,10 @@ export default function App() {
               <LogoDoor closed={doorClosed} onToggle={() => setDoorClosed((v) => !v)} />
               <path className="lp-cls-4" d="M43.62.73C25.76.68,8.49,10.81,3.73,24.92l-.6,1.99h3.11C9.55,17.89,20,2.36,43.62,2.31c17.13-.05,32.81,9.23,37.57,22.51l.53,1.57h2.58C81.32,14.53,67.56.73,43.62,0v.73Z" />
               <path className="lp-cls-4" d="M43.82,71.78c17.86.06,35.13-10.99,39.89-26.38l.6-2.17h-3.11c-3.31,9.84-13.76,26.78-37.38,26.84-17.13.06-32.81-10.07-37.57-24.55l-.53-1.72h-2.58c2.98,12.93,16.74,27.99,40.68,28.79v-.8Z" />
-              <polygon className="lp-cls-2 logo-star" points="81.46 29.86 79.92 33.28 76.09 33.53 79 35.86 78.09 39.36 81.46 37.45 84.83 39.36 83.92 35.86 86.93 33.53 83.01 33.28 81.46 29.86" />
+              <g className="logo-star-wrap">
+                <rect x="74" y="28" width="14" height="14" fill="transparent" />
+                <polygon className="lp-cls-2 logo-star" points="81.46 29.86 79.92 33.28 76.09 33.53 79 35.86 78.09 39.36 81.46 37.45 84.83 39.36 83.92 35.86 86.93 33.53 83.01 33.28 81.46 29.86" />
+              </g>
             </svg>
             <span className="hero-name">Psicoterapia<br />Psicodinamica<br />Sociale</span>
           </motion.h1>
