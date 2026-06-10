@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#eef2ff"/>
+  <circle cx="200" cy="200" r="165" stroke="#c7d2fe" stroke-width="1.5"/>
+  <circle cx="200" cy="200" r="115" fill="rgba(224,231,255,0.4)" stroke="#e0e7ff" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- Connection circle between figures -->
+  <circle cx="200" cy="196" r="38" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1.5"/>
+  <!-- Heart symbol in center -->
+  <path d="M 196 192 C 196 188 200 185 204 188 C 208 185 212 188 212 192 C 212 198 200 206 200 206 C 200 206 188 198 188 192 C 188 188 192 188 196 192 Z" fill="#6366f1" opacity="0.55"/>
+
+  <!-- PERSON LEFT (therapist) -->
+  <!-- Head -->
+  <circle cx="108" cy="148" r="33" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Face -->
+  <circle cx="100" cy="142" r="4" fill="#4f46e5"/>
+  <circle cx="116" cy="142" r="4" fill="#4f46e5"/>
+  <path d="M 101 157 Q 108 165 115 157" stroke="#4f46e5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Neck -->
+  <rect x="96" y="179" width="24" height="17" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Body -->
+  <path d="M 78 198 Q 76 244 73 272 L 147 272 Q 144 244 138 198 Z" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Chair arms -->
+  <path d="M 58 252 L 78 247 L 78 272" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 150 272 L 150 247 L 162 252" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- PERSON RIGHT (client) -->
+  <!-- Head -->
+  <circle cx="292" cy="148" r="33" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Hair accent -->
+  <path d="M 307 128 Q 316 116 308 106 Q 296 100 284 108" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Face -->
+  <circle cx="284" cy="142" r="4" fill="#4f46e5"/>
+  <circle cx="300" cy="142" r="4" fill="#4f46e5"/>
+  <path d="M 285 157 Q 292 165 299 157" stroke="#4f46e5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Neck -->
+  <rect x="280" y="179" width="24" height="17" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Body -->
+  <path d="M 262 198 Q 256 244 253 272 L 327 272 Q 322 244 322 198 Z" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <!-- Chair arms -->
+  <path d="M 238 252 L 258 247 L 256 272" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M 330 272 L 332 247 L 346 252" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Connection dashed line between figures -->
+  <path d="M 143 168 Q 200 152 257 168" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+
+  <!-- Decorative top element -->
+  <circle cx="200" cy="68" r="18" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1.5"/>
+  <circle cx="200" cy="68" r="9" fill="#c7d2fe" stroke="#a5b4fc" stroke-width="1"/>
+
+  <!-- Accent dots -->
+  <circle cx="55" cy="128" r="4" fill="#c7d2fe"/>
+  <circle cx="345" cy="128" r="4" fill="#c7d2fe"/>
+  <circle cx="55" cy="308" r="3.5" fill="#c7d2fe"/>
+  <circle cx="345" cy="308" r="3.5" fill="#c7d2fe"/>
+  <circle cx="200" cy="352" r="5" fill="#c7d2fe"/>
+  <circle cx="170" cy="362" r="3" fill="#e0e7ff"/>
+  <circle cx="230" cy="362" r="3" fill="#e0e7ff"/>
+</svg>

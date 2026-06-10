@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#f0fdf4"/>
+  <circle cx="200" cy="200" r="165" stroke="#d1fae5" stroke-width="1.5"/>
+  <circle cx="200" cy="200" r="130" stroke="#a7f3d0" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- Head silhouette -->
+  <ellipse cx="200" cy="148" rx="62" ry="68" fill="#dcfce7" stroke="#10b981" stroke-width="2"/>
+
+  <!-- Inner wave lines (layers of the unconscious) -->
+  <path d="M 155 135 Q 165 123 178 135 Q 191 147 204 135 Q 217 123 230 135 Q 238 143 245 135" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 155 153 Q 165 141 178 153 Q 191 165 204 153 Q 217 141 230 153 Q 238 161 245 153" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45"/>
+  <path d="M 158 171 Q 168 159 181 171 Q 194 183 207 171 Q 220 159 233 171" stroke="#059669" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Eyes -->
+  <circle cx="183" cy="124" r="5" fill="#059669"/>
+  <circle cx="217" cy="124" r="5" fill="#059669"/>
+
+  <!-- Mouth -->
+  <path d="M 188 158 Q 200 168 212 158" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Neck -->
+  <rect x="187" y="214" width="26" height="20" rx="6" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+
+  <!-- Body -->
+  <path d="M 160 238 Q 158 280 155 305 L 245 305 Q 242 280 240 238 Z" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+
+  <!-- Thought bubbles top-right -->
+  <circle cx="308" cy="92" r="26" fill="#dcfce7" stroke="#10b981" stroke-width="1.5"/>
+  <circle cx="340" cy="65" r="17" fill="#ecfdf5" stroke="#34d399" stroke-width="1.5"/>
+  <circle cx="358" cy="50" r="10" fill="#f0fdf4" stroke="#6ee7b7" stroke-width="1"/>
+  <!-- Thought connectors -->
+  <circle cx="289" cy="103" r="4" fill="#6ee7b7"/>
+  <circle cx="296" cy="96" r="3" fill="#a7f3d0"/>
+  <!-- Inner mark in bubble -->
+  <path d="M 297 84 Q 308 76 319 84 Q 312 94 297 84Z" fill="#059669" opacity="0.4"/>
+
+  <!-- Decorative left dashed path -->
+  <path d="M 82 168 Q 62 162 58 142 Q 54 122 68 115" stroke="#a7f3d0" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <circle cx="64" cy="112" r="11" fill="#dcfce7" stroke="#6ee7b7" stroke-width="1.5"/>
+
+  <!-- Scattered accent dots -->
+  <circle cx="100" cy="308" r="4" fill="#a7f3d0"/>
+  <circle cx="285" cy="322" r="3.5" fill="#a7f3d0"/>
+  <circle cx="342" cy="238" r="3" fill="#bbf7d0"/>
+  <circle cx="60" cy="260" r="4" fill="#bbf7d0"/>
+  <circle cx="345" cy="172" r="3.5" fill="#a7f3d0"/>
+</svg>
