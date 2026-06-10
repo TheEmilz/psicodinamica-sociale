@@ -573,15 +573,6 @@ export default function App() {
                 ))}
               </div>
             </motion.div>
-            <motion.a
-              variants={itemSpring}
-              href="#prenota"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#prenota') }}
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 text-white hover:opacity-80 transition-opacity"
-              style={{ borderRadius: '24px', background: '#7b6ef2' }}
-            >
-              Prenota ora — 40€ a seduta
-            </motion.a>
           </div>
         </ScrollReveal>
         <CardDecor color="#7b6ef2" />
