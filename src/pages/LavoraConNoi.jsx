@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-// Casella email del team verso cui recapitare le candidature (fallback mailto).
+// L'invio passa da Web3Forms, che recapita la candidatura alla casella del team
+// senza aprire il client di posta dell'utente.
 const CONTACT_EMAIL = 'silviaisid@gmail.com'
+const WEB3FORMS_KEY = '5af21dfc-2a75-4492-b084-5c3ede38d9be'
 
 export default function LavoraConNoi() {
   const [form, setForm] = useState({
@@ -11,7 +13,7 @@ export default function LavoraConNoi() {
     experience: '', analysis: '', supervision: '', portfolio: '', message: '',
   })
   const [consent, setConsent] = useState(false)
-  const [status, setStatus] = useState(null) // 'ok'
+  const [status, setStatus] = useState(null) // 'sending' | 'ok' | 'error'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -19,26 +21,35 @@ export default function LavoraConNoi() {
     return () => { document.title = 'Psicodinamica Sociale' }
   }, [])
 
-  // Sito statico (GitHub Pages): nessun backend. Il modulo apre il client di posta
-  // dell'utente precompilato verso la casella del team (fallback mailto).
-  const handleSubmit = (e) => {
+  // Sito statico (GitHub Pages): l'invio passa da Web3Forms, che recapita la
+  // candidatura alla casella del team senza aprire il client di posta dell'utente.
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const subject = `Candidatura — ${form.name || 'Nuovo candidato'}`
-    const bodyLines = [
-      `Nome e Cognome: ${form.name}`,
-      `Email: ${form.email}`,
-      `Telefono: ${form.phone || '—'}`,
-      `Anni di esperienza clinica: ${form.experience || '—'}`,
-      `Anni di analisi personale: ${form.analysis || '—'}`,
-      `Supervisione continuativa: ${form.supervision || '—'}`,
-      `CV / profilo: ${form.portfolio || '—'}`,
-      '',
-      'Messaggio:',
-      form.message || '—',
-    ]
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`
-    window.location.href = mailto
-    setStatus('ok')
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Candidatura — ${form.name || 'Nuovo candidato'}`,
+          from_name: 'Psicodinamica Sociale — Candidature',
+          name: form.name,
+          email: form.email,
+          phone: form.phone || '—',
+          esperienza_clinica: form.experience || '—',
+          analisi_personale: form.analysis || '—',
+          supervisione: form.supervision || '—',
+          cv_profilo: form.portfolio || '—',
+          message: form.message || '—',
+          botcheck: '',
+        }),
+      })
+      const data = await res.json()
+      setStatus(data.success ? 'ok' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputStyle = {
@@ -116,7 +127,7 @@ export default function LavoraConNoi() {
 
           {status === 'ok' ? (
             <div style={{ padding: '20px', borderRadius: '14px', background: 'rgba(91,77,224,0.08)', border: '1px solid rgba(91,77,224,0.22)', color: '#3730a3', fontSize: '15px', textAlign: 'center' }}>
-              ✓ Si è aperto il tuo programma di posta: controlla e premi invia per inoltrare la candidatura. Se non si apre, scrivici a {CONTACT_EMAIL}.
+              ✓ Candidatura inviata correttamente! Ti ricontatteremo al più presto. Se preferisci, puoi scriverci anche a {CONTACT_EMAIL}.
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
@@ -188,10 +199,10 @@ export default function LavoraConNoi() {
 
               <button
                 type="submit"
-                disabled={!consent}
-                style={{ width: '100%', padding: '15px', borderRadius: '24px', fontSize: '12px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', border: 'none', color: '#fff', background: '#5b4de0', cursor: 'pointer', opacity: !consent ? 0.6 : 1, transition: 'opacity 0.2s' }}
+                disabled={!consent || status === 'sending'}
+                style={{ width: '100%', padding: '15px', borderRadius: '24px', fontSize: '12px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', border: 'none', color: '#fff', background: '#5b4de0', cursor: 'pointer', opacity: (!consent || status === 'sending') ? 0.6 : 1, transition: 'opacity 0.2s' }}
               >
-                Invia la candidatura
+                {status === 'sending' ? 'Invio in corso…' : 'Invia la candidatura'}
               </button>
             </form>
           )}

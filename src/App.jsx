@@ -176,29 +176,39 @@ function CardDecor({ color }) {
 }
 
 // ─── Booking form component ─────────────────────────────────────────────────────
-// Sito statico (GitHub Pages): nessun backend. Il modulo apre il client di posta
-// dell'utente precompilato verso la casella del team (fallback mailto).
+// Sito statico (GitHub Pages): l'invio passa da Web3Forms, che recapita il
+// messaggio alla casella del team senza aprire il client di posta dell'utente.
 const CONTACT_EMAIL = 'silviaisid@gmail.com'
+const WEB3FORMS_KEY = '5af21dfc-2a75-4492-b084-5c3ede38d9be'
 
 function BookingSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [contactConsent, setContactConsent] = useState(false)
-  const [status, setStatus] = useState(null) // 'ok'
+  const [status, setStatus] = useState(null) // 'sending' | 'ok' | 'error'
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault()
-    const subject = `Richiesta colloquio — ${form.name || 'Nuovo contatto'}`
-    const bodyLines = [
-      `Nome e Cognome: ${form.name}`,
-      `Email: ${form.email}`,
-      `Telefono: ${form.phone || '—'}`,
-      '',
-      'Messaggio:',
-      form.message || '—',
-    ]
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`
-    window.location.href = mailto
-    setStatus('ok')
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Richiesta colloquio — ${form.name || 'Nuovo contatto'}`,
+          from_name: 'Psicodinamica Sociale — Sito',
+          name: form.name,
+          email: form.email,
+          phone: form.phone || '—',
+          message: form.message || '—',
+          botcheck: '',
+        }),
+      })
+      const data = await res.json()
+      setStatus(data.success ? 'ok' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputStyle = {
@@ -251,7 +261,7 @@ function BookingSection() {
     <div style={{ width: '100%', maxWidth: '480px', margin: '0 auto' }}>
       {status === 'ok' && (
         <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', color: '#065f46', fontSize: '14px', textAlign: 'center', marginBottom: '16px' }}>
-          ✓ Si è aperto il tuo programma di posta: controlla e premi invia per completare la richiesta. Se non si apre, scrivici a {CONTACT_EMAIL}.
+          ✓ Richiesta inviata correttamente! Ti ricontatteremo al più presto. Se preferisci, puoi scriverci anche a {CONTACT_EMAIL}.
         </div>
       )}
       {status === 'error' && (
@@ -280,10 +290,10 @@ function BookingSection() {
           </label>
           <button
             type="submit"
-            disabled={!contactConsent}
-            style={{ ...tabActive, width: '100%', padding: '14px', borderRadius: '24px', fontSize: '12px', opacity: !contactConsent ? 0.6 : 1 }}
+            disabled={!contactConsent || status === 'sending'}
+            style={{ ...tabActive, width: '100%', padding: '14px', borderRadius: '24px', fontSize: '12px', opacity: (!contactConsent || status === 'sending') ? 0.6 : 1 }}
           >
-            Invia il messaggio
+            {status === 'sending' ? 'Invio in corso…' : 'Invia il messaggio'}
           </button>
           <p style={{ fontSize: '13px', lineHeight: 1.7, color: '#9ca3af', margin: '6px 0 0' }}>
             Le disponibilità a tariffa sociale sono limitate: rappresentano una scelta precisa da parte dei professionisti del team, che hanno voluto riservare una parte del proprio lavoro a chi si trova in un momento di difficoltà e non ha molte risorse economiche. È un'occasione, non una concessione.

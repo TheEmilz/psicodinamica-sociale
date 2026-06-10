@@ -103,20 +103,27 @@ export default function PrivacyPolicy() {
 
           <h2 style={h2}>4. Modalità del trattamento</h2>
           <p style={p}>
-            L'invio dei moduli apre il client di posta dell'utente e recapita il messaggio
-            direttamente alla casella email del Titolare: i dati non transitano da database del
-            sito. Il trattamento avviene con strumenti elettronici e con misure tecniche e
-            organizzative adeguate a garantire riservatezza, integrità e protezione dei dati da
-            accessi non autorizzati.
+            L'invio dei moduli avviene tramite il servizio <strong>Web3Forms</strong> (Araxis
+            Lab), che inoltra il contenuto del modulo alla casella email del Titolare. I dati non
+            vengono memorizzati in database del sito né conservati da Web3Forms oltre il tempo
+            tecnico necessario all'inoltro del messaggio. Il trattamento avviene con strumenti
+            elettronici e con misure tecniche e organizzative adeguate a garantire riservatezza,
+            integrità e protezione dei dati da accessi non autorizzati.
           </p>
 
           <h2 style={h2}>5. Cookie e servizi di terze parti</h2>
           <p style={p}>
             Il sito <strong>non utilizza cookie di profilazione</strong> né strumenti di
-            tracciamento pubblicitario. Per la resa tipografica vengono caricati i font da Google
-            Fonts: tale servizio può comportare la comunicazione dell'indirizzo IP dell'utente ai
-            server di Google LLC al solo scopo di erogare i caratteri. Non vengono impostati
-            cookie a fini di marketing.
+            tracciamento pubblicitario. Per il funzionamento del sito vengono utilizzati i
+            seguenti servizi di terze parti, che agiscono come responsabili del trattamento:
+          </p>
+          <ul style={{ paddingLeft: '20px', margin: '0 0 12px' }}>
+            <li style={li}><strong>Web3Forms</strong>: gestisce l'inoltro dei moduli di contatto e candidatura verso la casella email del Titolare;</li>
+            <li style={li}><strong>Google Fonts</strong>: il caricamento dei caratteri tipografici può comportare la comunicazione dell'indirizzo IP dell'utente ai server di Google LLC al solo scopo di erogare i font;</li>
+            <li style={li}><strong>GitHub Pages</strong>: infrastruttura di hosting che gestisce i dati tecnici di navigazione per il funzionamento e la sicurezza del sito.</li>
+          </ul>
+          <p style={p}>
+            Non vengono impostati cookie a fini di marketing.
           </p>
 
           <h2 style={h2}>6. Conservazione dei dati</h2>
