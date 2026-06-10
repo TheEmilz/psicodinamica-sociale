@@ -347,7 +347,7 @@ export default function App() {
           >
             Psicoterapia Psicodinamica ·{' '}
             <span style={{ position: 'relative', display: 'inline-block', color: '#ffffff' }}>
-              <strong style={{ fontWeight: 800 }}>Solo Online</strong>
+              <strong style={{ fontWeight: 800 }}>Online</strong>
               <svg
                 aria-hidden="true"
                 viewBox="0 0 100 14"
