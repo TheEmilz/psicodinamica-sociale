@@ -562,6 +562,9 @@ export default function App() {
             <motion.p variants={itemSpring} className="hidden md:block text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
               Il team vanta una consolidata esperienza clinica nei disturbi del comportamento alimentare, nelle dipendenze, nei disturbi dell&apos;umore, nei disturbi d&apos;ansia e ossessivi, nella presa in carico di quadri clinici complessi, inclusi i disturbi di personalità e le forme di psicopatologia grave.
             </motion.p>
+            <motion.p variants={itemSpring} className="hidden md:block text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
+              Le disponibilità a tariffa sociale sono limitate: rappresentano una scelta precisa da parte dei professionisti del team, che hanno voluto riservare una parte del proprio lavoro a chi si trova in un momento di difficoltà e non ha molte risorse economiche. È un&apos;occasione, non una concessione.
+            </motion.p>
             <motion.div variants={itemSpring} className="w-full mb-4 md:mb-8">
               <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#5b4de0' }}>Aree di expertise</p>
               <div className="flex flex-wrap gap-2.5">
