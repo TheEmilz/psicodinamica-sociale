@@ -176,7 +176,11 @@ export default function LavoraConNoi() {
 
               <div>
                 <label style={labelStyle}>CV o profilo professionale (link)</label>
-                <input style={inputStyle} placeholder="Link a CV, sito o profilo (opzionale)" value={form.portfolio} onChange={e => setForm(f => ({ ...f, portfolio: e.target.value }))} />
+                <input style={inputStyle} placeholder="Incolla qui il link al tuo CV (PDF/DOC)" value={form.portfolio} onChange={e => setForm(f => ({ ...f, portfolio: e.target.value }))} />
+                <p style={{ fontSize: '11px', lineHeight: 1.5, color: '#9ca3af', margin: '6px 0 0' }}>
+                  Carica il CV (PDF o Word) su un servizio come Google Drive, Dropbox o WeTransfer e incolla qui il link di condivisione. In alternativa puoi inviarlo via email a{' '}
+                  <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#5b4de0', textDecoration: 'underline' }}>{CONTACT_EMAIL}</a>.
+                </p>
               </div>
 
               <div>
