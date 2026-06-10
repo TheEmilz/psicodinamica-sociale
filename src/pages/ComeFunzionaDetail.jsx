@@ -46,7 +46,7 @@ export default function ComeFunzionaDetail() {
         >
           {[
             { num: '01', title: 'Primo colloquio', text: 'Uno spazio libero — non è richiesto sapere già cosa dire.' },
-            { num: '02', title: 'Concordiamo insieme', text: 'Frequenza e durata delle sedute stabilite insieme, senza pressioni.' },
+            { num: '02', title: 'Concordiamo insieme', text: 'Frequenza delle sedute stabilita insieme, senza pressioni.' },
             { num: '03', title: 'Inizi il percorso', text: 'Sedute online, 50 minuti · 40€. Disponibilità a tariffa sociale.' },
           ].map(({ num, title, text }) => (
             <div key={num} style={{ padding: '20px 16px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.13)' }}>
