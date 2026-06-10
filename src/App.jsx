@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Header from './components/Header'
@@ -567,12 +567,9 @@ export default function App() {
             </motion.p>
             <motion.div variants={itemSpring} className="w-full mb-4 md:mb-8">
               <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#5b4de0' }}>Aree di expertise</p>
-              <div className="flex flex-wrap gap-2.5">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
                 {["Disturbi alimentari", "Dipendenze", "Disturbi dell'umore", "Ansia e OCD", "Disturbi di personalità", "Traumi complessi", "Relazioni difficili", "Disabilità", "LGBTQ+"].map(area => (
-                  <Fragment key={area}>
-                    {area === "Disabilità" && <div style={{ flexBasis: '100%', height: 0 }} aria-hidden="true" />}
-                    <span style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.02em', padding: '8px 18px', borderRadius: '22px', background: 'rgba(91,77,224,0.10)', border: '1px solid rgba(91,77,224,0.28)', color: '#3730a3' }}>{area}</span>
-                  </Fragment>
+                  <span key={area} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', fontSize: '13px', fontWeight: 600, letterSpacing: '0.02em', lineHeight: 1.25, padding: '10px 12px', borderRadius: '16px', background: 'rgba(91,77,224,0.10)', border: '1px solid rgba(91,77,224,0.28)', color: '#3730a3' }}>{area}</span>
                 ))}
               </div>
             </motion.div>
