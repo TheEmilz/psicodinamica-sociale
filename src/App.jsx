@@ -178,7 +178,7 @@ function CardDecor({ color }) {
 // ─── Booking form component ─────────────────────────────────────────────────────
 // Sito statico (GitHub Pages): nessun backend. Il modulo apre il client di posta
 // dell'utente precompilato verso la casella del team (fallback mailto).
-const CONTACT_EMAIL = 'info@psicodinamicasociale.it'
+const CONTACT_EMAIL = 'silviaisid@gmail.com'
 
 function BookingSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })

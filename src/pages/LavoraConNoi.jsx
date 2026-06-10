@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 // Casella email del team verso cui recapitare le candidature (fallback mailto).
-const CONTACT_EMAIL = 'info@psicodinamicasociale.it'
+const CONTACT_EMAIL = 'silviaisid@gmail.com'
 
 export default function LavoraConNoi() {
   const [form, setForm] = useState({

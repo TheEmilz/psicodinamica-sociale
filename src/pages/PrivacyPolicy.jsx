@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 // Indirizzo email di contatto per le richieste privacy / esercizio diritti GDPR.
 // Cambia qui se in futuro usi una casella diversa.
-const CONTACT_EMAIL = 'info@psicodinamicasociale.it'
+const CONTACT_EMAIL = 'silviaisid@gmail.com'
 
 export default function PrivacyPolicy() {
   useEffect(() => {
