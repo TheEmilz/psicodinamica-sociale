@@ -499,7 +499,7 @@ export default function App() {
               Come Funziona<br />il Percorso
             </motion.h2>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-4" style={{ color: '#4b5563' }}>
-              Si parte da un primo colloquio libero: nessuna domanda giusta o sbagliata, nessuna pressione. Si racconta la propria storia e insieme si valuta il percorso più adeguato. Frequenza delle sedute viene concordata, e si è sempre liberi di scegliere.{' '}
+              Si parte da un primo colloquio libero: nessuna domanda giusta o sbagliata, nessuna pressione. Si racconta la propria storia e insieme si valuta il percorso più adeguato. La frequenza delle sedute viene concordata.{' '}
               <Link to="/come-funziona" style={{ color: '#4f6ae8', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
             </motion.p>
             <motion.div variants={itemSpring} style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)', marginBottom: '16px', width: '100%' }}>
