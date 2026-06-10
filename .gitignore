@@ -38,3 +38,7 @@ api/data/
 
 # Materiali di lavoro del cliente (documenti sorgente, bozze) — non pubblicare
 asset/
+
+# Artefatti temporanei di test/preview
+.playwright-mcp/
+footer-bottom*.png
