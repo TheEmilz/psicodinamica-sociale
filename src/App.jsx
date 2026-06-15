@@ -629,7 +629,7 @@ export default function App() {
             Scegli il professionista e contattalo direttamente per prenotare il primo colloquio.
           </motion.p>
           <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-10 text-center max-w-lg" style={{ color: '#8b87a8' }}>
-            Ogni terapeuta gestisce autonomamente il proprio calendario, le proprie tariffe e le disponibilità a tariffa sociale. Per verificare le disponibilità e prenotare, contatta direttamente il professionista scelto tramite il suo calendario o la sua email.
+            Per verificare le disponibilità e prenotare, contatta direttamente il professionista scelto tramite il suo calendario o la sua email.
           </motion.p>
           <motion.div variants={itemSpring} style={{ width: '100%' }}>
             <TherapistContacts />
