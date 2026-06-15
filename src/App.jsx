@@ -11,7 +11,7 @@ import imgTeam from './assets/img-team.svg'
 import photoCose from './assets/cose-new.png'
 import photoComeFunziona from './assets/come-funziona.png'
 import photoTeam from './assets/team.png'
-import photoSilvia from './assets/WhatsApp Image 2026-05-22 at 14.09.05.jpeg'
+import photoSilvia from './assets/WhatsApp Image 2026-06-15 at 14.19.13.jpeg'
 import './index.css'
 
 // ─── StickyCard: card sovrapposte (stacking) senza spazio morto ────────────────
