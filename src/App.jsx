@@ -180,43 +180,67 @@ function CardDecor({ color }) {
 // in autonomia il proprio calendario e le proprie tariffe (art. 18 Codice
 // Deontologico · esenzione IVA art. 10 n. 18).
 const THERAPISTS = [
-  { name: 'Dott.ssa [Nome 1]', calendly: 'https://calendly.com/nome1', email: 'nome1@gmail.com' },
-  { name: 'Dott.ssa [Nome 2]', calendly: 'https://calendly.com/nome2', email: 'nome2@gmail.com' },
-  { name: 'Dott.ssa [Nome 3]', calendly: 'https://calendly.com/nome3', email: 'nome3@gmail.com' },
-  { name: 'Dott.ssa [Nome 4]', calendly: 'https://calendly.com/nome4', email: 'nome4@gmail.com' },
+  {
+    name: 'Dott.ssa Silvia Peschillo',
+    role: 'Psicologa Psicoterapeuta',
+    albo: 'Albo Psicologi Regione Lazio n° 18470',
+    piva: 'P. IVA 12425101008',
+    calendly: null,
+    email: 'silviaisid@gmail.com',
+  },
 ]
 
 function TherapistContacts() {
   return (
     <div style={{ width: '100%', maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {THERAPISTS.map(({ name, calendly, email }) => (
+      {THERAPISTS.map(({ name, role, albo, piva, calendly, email }) => (
         <div
           key={name}
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
-            padding: '22px 24px',
+            gap: '14px',
+            padding: '24px 26px',
             borderRadius: '20px',
-            background: 'rgba(255,255,255,0.78)',
+            background: 'rgba(255,255,255,0.82)',
             border: '1px solid rgba(91,77,224,0.22)',
+            boxShadow: '0 8px 28px rgba(91,77,224,0.10)',
             textAlign: 'left',
           }}
         >
-          <p style={{ fontSize: '20px', fontWeight: 600, color: '#3730a3', margin: 0, fontFamily: "'Cormorant Garamond', serif" }}>{name}</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <a
-              href={calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '10px 20px', borderRadius: '20px', background: '#5b4de0', color: '#fff', textDecoration: 'none' }}
-            >
-              Prenota il primo colloquio
-            </a>
+          <div>
+            <p style={{ fontSize: '22px', fontWeight: 600, color: '#3730a3', margin: 0, lineHeight: 1.15, fontFamily: "'Cormorant Garamond', serif" }}>{name}</p>
+            {role && (
+              <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7b6ef2', margin: '6px 0 0' }}>{role}</p>
+            )}
+          </div>
+
+          {(albo || piva) && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', paddingTop: '2px', borderTop: '1px solid rgba(91,77,224,0.14)' }}>
+              {albo && <p style={{ fontSize: '12.5px', color: '#6b7280', margin: '10px 0 0' }}>{albo}</p>}
+              {piva && <p style={{ fontSize: '12.5px', color: '#6b7280', margin: 0 }}>{piva}</p>}
+            </div>
+          )}
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginTop: '2px' }}>
+            {calendly && (
+              <a
+                href={calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '10px 20px', borderRadius: '20px', background: '#5b4de0', color: '#fff', textDecoration: 'none' }}
+              >
+                Prenota il primo colloquio
+              </a>
+            )}
             <a
               href={`mailto:${email}`}
-              style={{ fontSize: '13px', fontWeight: 500, color: '#5b4de0', textDecoration: 'none' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontSize: '13px', fontWeight: 600, color: '#5b4de0', textDecoration: 'none' }}
             >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
               {email}
             </a>
           </div>
