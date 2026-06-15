@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import { ScrollReveal } from './components/ScrollReveal'
 import { itemSpring, wordSpring } from './components/springVariants'
@@ -175,131 +175,54 @@ function CardDecor({ color }) {
   )
 }
 
-// ─── Booking form component ─────────────────────────────────────────────────────
-// Sito statico (GitHub Pages): l'invio passa da Web3Forms, che recapita il
-// messaggio alla casella del team senza aprire il client di posta dell'utente.
-const CONTACT_EMAIL = 'silviaisid@gmail.com'
-const WEB3FORMS_KEY = '5af21dfc-2a75-4492-b084-5c3ede38d9be'
+// ─── Therapist contacts — contatto diretto e verticale ─────────────────────────
+// Nessuna segreteria, nessuna mail unica, nessuna lista d'attesa centralizzata:
+// ogni paziente sceglie e contatta direttamente il professionista, che gestisce
+// in autonomia il proprio calendario e le proprie tariffe (art. 18 Codice
+// Deontologico · esenzione IVA art. 10 n. 18).
+const THERAPISTS = [
+  { name: 'Dott.ssa [Nome 1]', calendly: 'https://calendly.com/nome1', email: 'nome1@gmail.com' },
+  { name: 'Dott.ssa [Nome 2]', calendly: 'https://calendly.com/nome2', email: 'nome2@gmail.com' },
+  { name: 'Dott.ssa [Nome 3]', calendly: 'https://calendly.com/nome3', email: 'nome3@gmail.com' },
+  { name: 'Dott.ssa [Nome 4]', calendly: 'https://calendly.com/nome4', email: 'nome4@gmail.com' },
+]
 
-function BookingSection() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
-  const [contactConsent, setContactConsent] = useState(false)
-  const [status, setStatus] = useState(null) // 'sending' | 'ok' | 'error'
-
-  const handleContactSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `Richiesta colloquio — ${form.name || 'Nuovo contatto'}`,
-          from_name: 'Psicodinamica Sociale — Sito',
-          name: form.name,
-          email: form.email,
-          phone: form.phone || '—',
-          message: form.message || '—',
-          botcheck: '',
-        }),
-      })
-      const data = await res.json()
-      setStatus(data.success ? 'ok' : 'error')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  const inputStyle = {
-    width: '100%',
-    padding: '10px 14px',
-    borderRadius: '10px',
-    border: '1px solid rgba(37,99,235,0.18)',
-    background: 'rgba(255,255,255,0.7)',
-    fontSize: '14px',
-    color: '#1f2937',
-    outline: 'none',
-    fontFamily: "'Inter', sans-serif",
-  }
-
-  const consentLabelStyle = {
-    display: 'flex',
-    alignItems: 'flex-start',
-    gap: '10px',
-    fontSize: '11px',
-    lineHeight: 1.5,
-    color: '#6b7280',
-    textAlign: 'left',
-    cursor: 'pointer',
-    fontFamily: "'Inter', sans-serif",
-  }
-
-  const consentCheckboxStyle = {
-    width: '16px',
-    height: '16px',
-    marginTop: '1px',
-    flexShrink: 0,
-    accentColor: '#1a3a6e',
-    cursor: 'pointer',
-  }
-
-  const tabActive = {
-    background: '#1a3a6e',
-    color: '#fff',
-    borderRadius: '20px',
-    padding: '8px 24px',
-    fontSize: '11px',
-    fontWeight: 600,
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s',
-  }
+function TherapistContacts() {
   return (
-    <div style={{ width: '100%', maxWidth: '480px', margin: '0 auto' }}>
-      {status === 'ok' && (
-        <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)', color: '#065f46', fontSize: '14px', textAlign: 'center', marginBottom: '16px' }}>
-          ✓ Richiesta inviata correttamente! Ti ricontatteremo al più presto. Se preferisci, puoi scriverci anche a {CONTACT_EMAIL}.
+    <div style={{ width: '100%', maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {THERAPISTS.map(({ name, calendly, email }) => (
+        <div
+          key={name}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+            padding: '22px 24px',
+            borderRadius: '20px',
+            background: 'rgba(255,255,255,0.78)',
+            border: '1px solid rgba(91,77,224,0.22)',
+            textAlign: 'left',
+          }}
+        >
+          <p style={{ fontSize: '20px', fontWeight: 600, color: '#3730a3', margin: 0, fontFamily: "'Cormorant Garamond', serif" }}>{name}</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+            <a
+              href={calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '10px 20px', borderRadius: '20px', background: '#5b4de0', color: '#fff', textDecoration: 'none' }}
+            >
+              Prenota il primo colloquio
+            </a>
+            <a
+              href={`mailto:${email}`}
+              style={{ fontSize: '13px', fontWeight: 500, color: '#5b4de0', textDecoration: 'none' }}
+            >
+              {email}
+            </a>
+          </div>
         </div>
-      )}
-      {status === 'error' && (
-        <div style={{ padding: '16px', borderRadius: '12px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', color: '#991b1b', fontSize: '14px', textAlign: 'center', marginBottom: '16px' }}>
-          Si è verificato un errore. Riprova o scrivici direttamente.
-        </div>
-      )}
-
-      {status !== 'ok' && (
-        <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <input required style={inputStyle} placeholder="Nome e Cognome" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
-          <input required type="email" style={inputStyle} placeholder="Email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} />
-          <input type="tel" style={inputStyle} placeholder="Telefono (opzionale)" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} />
-          <textarea rows={4} style={{ ...inputStyle, resize: 'vertical' }} placeholder="Messaggio (opzionale)" value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
-          <label style={consentLabelStyle}>
-            <input
-              type="checkbox"
-              required
-              checked={contactConsent}
-              onChange={e => setContactConsent(e.target.checked)}
-              style={consentCheckboxStyle}
-            />
-            <span>
-              Ho letto l'<a href="#/privacy" style={{ color: '#1a3a6e', textDecoration: 'underline' }}>informativa privacy</a> e acconsento al trattamento dei miei dati personali ai sensi del GDPR (Reg. UE 2016/679).
-            </span>
-          </label>
-          <button
-            type="submit"
-            disabled={!contactConsent || status === 'sending'}
-            style={{ ...tabActive, width: '100%', padding: '14px', borderRadius: '24px', fontSize: '12px', opacity: (!contactConsent || status === 'sending') ? 0.6 : 1 }}
-          >
-            {status === 'sending' ? 'Invio in corso…' : 'Invia il messaggio'}
-          </button>
-          <p style={{ fontSize: '13px', lineHeight: 1.7, color: '#9ca3af', margin: '6px 0 0' }}>
-            Le disponibilità a tariffa sociale sono limitate: rappresentano una scelta precisa da parte dei professionisti del team, che hanno voluto riservare una parte del proprio lavoro a chi si trova in un momento di difficoltà e non ha molte risorse economiche. È un'occasione, non una concessione.
-          </p>
-        </form>
-      )}
+      ))}
     </div>
   )
 }
@@ -353,6 +276,16 @@ function LogoDoor({ closed, onToggle }) {
 
 export default function App() {
   const [doorClosed, setDoorClosed] = useState(false)
+  const location = useLocation()
+
+  // Quando si arriva alla home con un hash di sezione (es. da una CTA "/#prenota"
+  // di un'altra pagina), scorri fino alla sezione una volta montato il layout.
+  useEffect(() => {
+    if (!location.hash) return
+    const id = setTimeout(() => scrollToSection(location.hash), 80)
+    return () => clearTimeout(id)
+  }, [location.hash])
+
   return (
     <div style={{ background: '#f5f5f5', minHeight: '100vh' }}>
       <Header />
@@ -455,7 +388,7 @@ export default function App() {
             style={{ color: 'rgba(255,255,255,0.82)' }}
           >
             Un percorso di psicoterapia psicodinamica accessibile a tutti.
-            Sedute individuali <strong style={{ color: '#ffffff' }}>online</strong> a <strong style={{ color: '#fca5a5' }}>40€</strong>.
+            Sedute individuali <strong style={{ color: '#ffffff' }}>online</strong> a <strong style={{ color: '#fca5a5' }}>tariffe accessibili</strong>.
           </motion.p>
           <motion.div variants={itemSpring} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '20px' }}>
             <motion.a
@@ -539,7 +472,7 @@ export default function App() {
                 className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 text-white hover:opacity-80 transition-opacity"
                 style={{ borderRadius: '24px', background: '#2563eb' }}
               >
-                Inizia il percorso — 40€ a seduta
+                Inizia il percorso
               </motion.a>
             </motion.div>
           </div>
@@ -590,15 +523,15 @@ export default function App() {
             <motion.div variants={itemSpring} className="flex flex-col gap-3" style={{ width: '100%' }}>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia individuale</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>40€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia di coppia</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia famigliare</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
               </div>
             </motion.div>
           </div>
@@ -643,13 +576,13 @@ export default function App() {
               Il Nostro Team
             </motion.h2>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-4" style={{ color: '#4b5563' }}>
-              Siamo psicoterapeuti di formazione psicodinamica con più di dieci anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo e crediamo che la qualità di un percorso terapeutico non debba essere un privilegio, né una questione di geografia o di disponibilità economica. La cura dovrebbe essere alla portata di chi ne ha bisogno.
+              Siamo 4 psicoterapeuti di formazione psicodinamica con più di dieci anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo. Crediamo che la qualità di un percorso terapeutico non debba essere un privilegio. La cura dovrebbe essere alla portata di chi ne ha bisogno.
             </motion.p>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
               Il team vanta una consolidata esperienza clinica nei disturbi del comportamento alimentare, nelle dipendenze, nei disturbi dell&apos;umore, nei disturbi d&apos;ansia e ossessivi, nella presa in carico di quadri clinici complessi, inclusi i disturbi di personalità e le forme di psicopatologia grave.
             </motion.p>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
-              Le disponibilità a tariffa sociale sono limitate: rappresentano una scelta precisa da parte dei professionisti del team, che hanno voluto riservare una parte del proprio lavoro a chi si trova in un momento di difficoltà e non ha molte risorse economiche. È un&apos;occasione, non una concessione.
+              Riserviamo posti a tariffa sociale per chi si trova in difficoltà economica. Le disponibilità sono limitate. Per verificare le disponibilità e prenotare il primo colloquio contatta direttamente il professionista scelto. Ogni terapeuta gestisce autonomamente il proprio calendario e le proprie tariffe.
             </motion.p>
             <motion.div variants={itemSpring} className="w-full mb-4 md:mb-8">
               <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#5b4de0' }}>Aree di expertise</p>
@@ -694,13 +627,13 @@ export default function App() {
             Prenota una Seduta
           </motion.h2>
           <motion.p variants={itemSpring} className="text-base leading-relaxed mb-6 text-center max-w-md" style={{ color: '#6b7280' }}>
-            Lascia il tuo contatto e verrai ricontattato entro 24 ore.
+            Scegli il professionista e contattalo direttamente per prenotare il primo colloquio.
           </motion.p>
           <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-10 text-center max-w-lg" style={{ color: '#8b87a8' }}>
-            Per verificare le disponibilità e prenotare il primo colloquio è possibile scrivere nella sezione contatti per essere ricontattati via email entro le 24 ore. Qualora non vi fosse disponibilità al momento della richiesta, è possibile inserirsi in lista d&apos;attesa e si verrà contattati non appena un professionista tornerà disponibile.
+            Ogni terapeuta gestisce autonomamente il proprio calendario, le proprie tariffe e le disponibilità a tariffa sociale. Per verificare le disponibilità e prenotare, contatta direttamente il professionista scelto tramite il suo calendario o la sua email.
           </motion.p>
           <motion.div variants={itemSpring} style={{ width: '100%' }}>
-            <BookingSection />
+            <TherapistContacts />
           </motion.div>
         </ScrollReveal>
       </section>

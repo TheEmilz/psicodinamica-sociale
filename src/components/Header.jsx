@@ -281,7 +281,7 @@ export default function Header() {
               transition={transition}
               style={{ borderWidth: '1px', borderStyle: 'solid' }}
             >
-              Prenota — 40€
+              Prenota
             </motion.a>
           </div>
 
@@ -343,7 +343,7 @@ export default function Header() {
                     style={{ borderRadius: '24px', background: '#f97316' }}
                     onClick={(e) => { handleNavClick(e, '#prenota'); setMenuOpen(false) }}
                   >
-                    Prenota — 40€
+                    Prenota
                   </a>
                 </li>
               </ul>

@@ -23,17 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-# PHP backend — secrets (NEVER commit these)
-api/config.php
-api/config.local.php
-api/admin/.htpasswd
+# Local env secrets (NEVER commit these)
 .env
 .env.local
 .env.*.local
 
-# Local-only test artifacts
-php.local.ini
-api/data/
+# Local-only artifacts
 *.sqlite
 
 # Materiali di lavoro del cliente (documenti sorgente, bozze) — non pubblicare

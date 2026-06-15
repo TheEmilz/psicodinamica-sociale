@@ -5,8 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:api": "php -c php.local.ini -S localhost:8000 -t .",
-    "dev:all": "concurrently -n vite,php -c blue,magenta \"npm run dev\" \"npm run dev:api\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -23,7 +21,6 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "concurrently": "^9.2.1",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",

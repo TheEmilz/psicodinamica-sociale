@@ -82,7 +82,7 @@ export default function CoseDetail() {
               to="/#prenota"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '16px 32px', borderRadius: '24px', background: '#059669', color: '#fff', textDecoration: 'none' }}
             >
-              Inizia il percorso — 40€ a seduta
+              Prenota il primo colloquio
             </Link>
             <Link to="/" style={{ fontSize: '12px', color: '#9ca3af', textDecoration: 'none' }}>
               ← Torna alla home

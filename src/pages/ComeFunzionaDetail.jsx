@@ -47,7 +47,7 @@ export default function ComeFunzionaDetail() {
           {[
             { num: '01', title: 'Primo colloquio', text: 'Uno spazio libero — non è richiesto sapere già cosa dire.' },
             { num: '02', title: 'Concordiamo insieme', text: 'Frequenza delle sedute stabilita insieme, senza pressioni.' },
-            { num: '03', title: 'Inizi il percorso', text: 'Sedute online, 50 minuti · 40€. Disponibilità a tariffa sociale.' },
+            { num: '03', title: 'Inizi il percorso', text: 'Sedute online · 50 minuti. Disponibilità a tariffa sociale.' },
           ].map(({ num, title, text }) => (
             <div key={num} style={{ padding: '20px 16px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.13)' }}>
               <div style={{ fontSize: '28px', fontWeight: 700, color: 'rgba(234,88,12,0.18)', fontFamily: "'Cormorant Garamond', serif", marginBottom: '8px' }}>{num}</div>
@@ -74,7 +74,7 @@ export default function ComeFunzionaDetail() {
           {/* Price box */}
           <div style={{ padding: '24px 32px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.22)', textAlign: 'center', marginTop: '8px' }}>
             <p style={{ fontSize: '28px', fontWeight: 600, color: '#ea580c', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>
-              40€ a seduta · 50 minuti
+              Tariffe accessibili · 50 minuti
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function ComeFunzionaDetail() {
               to="/#prenota"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '16px 32px', borderRadius: '24px', background: '#ea580c', color: '#fff', textDecoration: 'none' }}
             >
-              Prenota ora — 40€ a seduta
+              Prenota il primo colloquio
             </Link>
             <Link to="/" style={{ fontSize: '12px', color: '#9ca3af', textDecoration: 'none' }}>
               ← Torna alla home
