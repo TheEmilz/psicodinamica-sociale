@@ -87,6 +87,7 @@ function getColors(scrolled, sectionTheme) {
       link: '#ffffff',
       linkHover: '#ef4444',
       underline: '#ef4444',
+      burger: '#ffffff',
       ctaBg: 'transparent',
       ctaText: '#ffffff',
       ctaBorder: 'rgba(255,255,255,0.45)',
@@ -100,6 +101,7 @@ function getColors(scrolled, sectionTheme) {
     link: '#1f2937',
     linkHover: '#ef4444',
     underline: '#ef4444',
+    burger: '#1f2937',
     ctaBg: '#dc2626',
     ctaText: '#ffffff',
     ctaBorder: '#dc2626',
@@ -116,7 +118,15 @@ export default function Header() {
 
   // ── Scroll state (triggers compact mode at 50 px) ──
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50)
+        ticking = false
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -148,18 +158,32 @@ export default function Header() {
     const sections = document.querySelectorAll('[data-header-theme]')
     sections.forEach(s => observer.observe(s))
 
-    // Also listen to scroll for sub-pixel accuracy between IO callbacks
-    window.addEventListener('scroll', readCurrentSection, { passive: true })
+    // Also listen to scroll for sub-pixel accuracy between IO callbacks,
+    // throttled with rAF so each scroll event doesn't force a synchronous
+    // reflow (which caused scroll jank/freezing on mobile).
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        readCurrentSection()
+        ticking = false
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     readCurrentSection() // initial read
 
     return () => {
       observer.disconnect()
-      window.removeEventListener('scroll', readCurrentSection)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 
-  const navAnimate = getNavAnimate(scrolled, sectionTheme)
-  const colors = getColors(scrolled, sectionTheme)
+  // When the mobile/tablet drawer is open we treat the header as "active"
+  // so it gets a solid background and dark text even over the dark hero.
+  const active = scrolled || menuOpen
+  const navAnimate = getNavAnimate(active, sectionTheme)
+  const colors = getColors(active, sectionTheme)
   const transition = { duration: 0.55, ease: [0.4, 0, 0.2, 1] }
 
   return (
@@ -195,7 +219,7 @@ export default function Header() {
         {/* ── Blur overlay: isolated so backdrop-filter never breaks -webkit-background-clip: text on children ── */}
         <motion.div
           aria-hidden="true"
-          animate={{ opacity: scrolled ? 1 : 0 }}
+          animate={{ opacity: active ? 1 : 0 }}
           transition={transition}
           style={{
             position: 'absolute', inset: 0,
@@ -234,7 +258,7 @@ export default function Header() {
           </a>
 
           {/* Desktop navigation */}
-          <ul className="hidden sm:flex items-center gap-8 list-none m-0 p-0">
+          <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <motion.a
@@ -263,7 +287,7 @@ export default function Header() {
           </ul>
 
           {/* CTA button */}
-          <div className="hidden sm:block">
+          <div className="hidden lg:block">
             <motion.a
               href="#prenota"
               onClick={(e) => handleNavClick(e, '#prenota')}
@@ -285,29 +309,26 @@ export default function Header() {
             </motion.a>
           </div>
 
-          {/* Hamburger (mobile) */}
+          {/* Hamburger (mobile + tablet) */}
           <button
-            className="sm:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
+            className="lg:hidden flex flex-col justify-center items-center w-11 h-11 -mr-2 gap-1.5 focus:outline-none"
             onClick={() => setMenuOpen(p => !p)}
             aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
           >
             <motion.span
-              animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }}
+              animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0, backgroundColor: menuOpen ? '#1f2937' : colors.burger }}
               transition={{ duration: 0.3 }}
-              className="block h-px w-6 origin-center"
-              style={{ backgroundColor: '#374151' }}
+              className="block h-0.5 w-7 origin-center rounded-full"
             />
             <motion.span
-              animate={{ opacity: menuOpen ? 0 : 1, scaleX: menuOpen ? 0 : 1 }}
+              animate={{ opacity: menuOpen ? 0 : 1, scaleX: menuOpen ? 0 : 1, backgroundColor: colors.burger }}
               transition={{ duration: 0.3 }}
-              className="block h-px w-6"
-              style={{ backgroundColor: '#374151' }}
+              className="block h-0.5 w-7 rounded-full"
             />
             <motion.span
-              animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }}
+              animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0, backgroundColor: menuOpen ? '#1f2937' : colors.burger }}
               transition={{ duration: 0.3 }}
-              className="block h-px w-6 origin-center"
-              style={{ backgroundColor: '#374151' }}
+              className="block h-0.5 w-7 origin-center rounded-full"
             />
           </button>
         </div>
@@ -321,25 +342,25 @@ export default function Header() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-              className="sm:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden"
               style={{ position: 'relative', zIndex: 1 }}
             >
-              <ul className="flex flex-col items-center gap-4 pt-4 pb-5 list-none m-0 p-0">
+              <ul className="flex flex-col items-stretch gap-1 px-4 pt-3 pb-5 list-none m-0">
                 {NAV_LINKS.map(({ label, href }) => (
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-xs font-medium tracking-[0.2em] uppercase text-gray-600 hover:text-red-500 transition-colors duration-200"
+                      className="flex items-center justify-center text-sm font-medium tracking-[0.2em] uppercase text-gray-700 hover:text-red-500 hover:bg-gray-50 rounded-xl py-3.5 transition-colors duration-200"
                       onClick={(e) => { handleNavClick(e, href); setMenuOpen(false) }}
                     >
                       {label}
                     </a>
                   </li>
                 ))}
-                <li className="mt-2">
+                <li className="mt-2 px-2">
                   <a
                     href="#prenota"
-                    className="text-xs font-semibold tracking-[0.15em] uppercase px-5 py-2.5 text-white hover:opacity-90 transition-opacity"
+                    className="flex items-center justify-center text-sm font-semibold tracking-[0.15em] uppercase py-3.5 text-white hover:opacity-90 transition-opacity"
                     style={{ borderRadius: '24px', background: '#f97316' }}
                     onClick={(e) => { handleNavClick(e, '#prenota'); setMenuOpen(false) }}
                   >
