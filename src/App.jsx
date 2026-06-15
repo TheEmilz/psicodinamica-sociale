@@ -12,6 +12,7 @@ import photoCose from './assets/cose-new.png'
 import photoComeFunziona from './assets/come-funziona.png'
 import photoTeam from './assets/team.png'
 import photoSilvia from './assets/WhatsApp Image 2026-06-15 at 14.19.13.jpeg'
+import photoStefano from './assets/430536a8a500a36d3e97e909d86195c3.jpeg'
 import './index.css'
 
 // ─── StickyCard: card sovrapposte (stacking) senza spazio morto ────────────────
@@ -189,6 +190,15 @@ const THERAPISTS = [
     photo: photoSilvia,
     calendly: null,
     email: 'silviaisid@gmail.com',
+  },
+  {
+    name: 'Dott. Stefano Vitale',
+    role: 'Psicologo Psicoterapeuta',
+    albo: 'Albo Psicologi Regione Lazio n° 17445',
+    piva: 'P. IVA 1582581009',
+    photo: photoStefano,
+    calendly: null,
+    email: 'stef.vit53@gmail.com',
   },
 ]
 
