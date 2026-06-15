@@ -731,7 +731,7 @@ export default function App() {
       {/* Footer */}
       <footer style={{ background: '#f5f5f5', padding: '44px 24px 40px', textAlign: 'center', position: 'relative', zIndex: 7 }}>
         <p style={{ margin: 0, fontSize: '12px', letterSpacing: '0.08em', color: '#9ca3af' }}>
-          © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a>
+          © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a> · <a href="#/note-legali" style={{ color: '#9ca3af' }}>Note Legali</a>
         </p>
         <p style={{ margin: '8px 0 0', fontSize: '12px', letterSpacing: '0.08em', color: '#b8b8b8' }}>
           Sito web realizzato da{' '}

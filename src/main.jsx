@@ -7,6 +7,7 @@ import CoseDetail from './pages/CoseDetail.jsx'
 import ComeFunzionaDetail from './pages/ComeFunzionaDetail.jsx'
 import LavoraConNoi from './pages/LavoraConNoi.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import NoteLegali from './pages/NoteLegali.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/come-funziona" element={<ComeFunzionaDetail />} />
         <Route path="/lavora-con-noi" element={<LavoraConNoi />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/note-legali" element={<NoteLegali />} />
       </Routes>
     </HashRouter>
   </StrictMode>,
