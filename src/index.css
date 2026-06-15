@@ -80,3 +80,18 @@ body {
   transform: rotateY(360deg);
 }
 
+/* ── StickyCard: stacking effect only on desktop. ──
+   On mobile/tablet the cards flow normally so tall content (es. testo del
+   team) non viene tagliato dalla card successiva che sale. */
+.sticky-card {
+  position: relative;
+  top: auto;
+}
+@media (min-width: 768px) {
+  .sticky-card {
+    position: sticky;
+    top: 0;
+  }
+}
+
+

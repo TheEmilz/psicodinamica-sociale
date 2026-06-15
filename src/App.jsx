@@ -21,9 +21,8 @@ function StickyCard({ id, headerTheme, zIndex, bgImage, blob, children }) {
     <section
       id={id}
       data-header-theme={headerTheme}
-      className="flex flex-col items-center justify-center"
+      className="sticky-card flex flex-col items-center justify-center"
       style={{
-        position: 'sticky', top: 0,
         minHeight: '100vh',
         overflow: 'hidden',
         zIndex,
