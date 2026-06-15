@@ -16,17 +16,23 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Forza tutte le action JavaScript a girare su Node.js 24 (le action Pages
+# ufficiali dichiarano ancora Node 20: questa variabile evita il warning di
+# deprecazione fino al rilascio delle nuove major).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
