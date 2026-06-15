@@ -582,7 +582,7 @@ export default function App() {
               Il team vanta una consolidata esperienza clinica nei disturbi del comportamento alimentare, nelle dipendenze, nei disturbi dell&apos;umore, nei disturbi d&apos;ansia e ossessivi, nella presa in carico di quadri clinici complessi, inclusi i disturbi di personalità e le forme di psicopatologia grave.
             </motion.p>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
-              Riserviamo posti a tariffa sociale per chi si trova in difficoltà economica. Le disponibilità sono limitate. Per verificare le disponibilità e prenotare il primo colloquio contatta direttamente il professionista scelto. Ogni terapeuta gestisce autonomamente il proprio calendario e le proprie tariffe.
+              Riserviamo posti a tariffa sociale per chi si trova in difficoltà economica. Le disponibilità sono limitate. Per verificare le disponibilità e prenotare il primo colloquio contatta direttamente il professionista scelto.
             </motion.p>
             <motion.div variants={itemSpring} className="w-full mb-4 md:mb-8">
               <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#5b4de0' }}>Aree di expertise</p>
