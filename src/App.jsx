@@ -11,6 +11,7 @@ import imgTeam from './assets/img-team.svg'
 import photoCose from './assets/cose-new.png'
 import photoComeFunziona from './assets/come-funziona.png'
 import photoTeam from './assets/team.png'
+import photoSilvia from './assets/WhatsApp Image 2026-05-22 at 14.09.05.jpeg'
 import './index.css'
 
 // ─── StickyCard: card sovrapposte (stacking) senza spazio morto ────────────────
@@ -185,6 +186,7 @@ const THERAPISTS = [
     role: 'Psicologa Psicoterapeuta',
     albo: 'Albo Psicologi Regione Lazio n° 18470',
     piva: 'P. IVA 12425101008',
+    photo: photoSilvia,
     calendly: null,
     email: 'silviaisid@gmail.com',
   },
@@ -193,7 +195,7 @@ const THERAPISTS = [
 function TherapistContacts() {
   return (
     <div style={{ width: '100%', maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {THERAPISTS.map(({ name, role, albo, piva, calendly, email }) => (
+      {THERAPISTS.map(({ name, role, albo, piva, photo, calendly, email }) => (
         <div
           key={name}
           style={{
@@ -208,11 +210,33 @@ function TherapistContacts() {
             textAlign: 'left',
           }}
         >
-          <div>
-            <p style={{ fontSize: '22px', fontWeight: 600, color: '#3730a3', margin: 0, lineHeight: 1.15, fontFamily: "'Cormorant Garamond', serif" }}>{name}</p>
-            {role && (
-              <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7b6ef2', margin: '6px 0 0' }}>{role}</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+            {photo && (
+              <div
+                style={{
+                  flexShrink: 0,
+                  width: '84px',
+                  height: '84px',
+                  borderRadius: '50%',
+                  padding: '3px',
+                  background: 'linear-gradient(145deg, #f4f4f6 0%, #c8c9cf 35%, #9a9ba3 60%, #e8e9ec 100%)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.14), inset 0 0 0 1px rgba(255,255,255,0.6)',
+                }}
+              >
+                <img
+                  src={photo}
+                  alt={name}
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
             )}
+            <div>
+              <p style={{ fontSize: '22px', fontWeight: 600, color: '#3730a3', margin: 0, lineHeight: 1.15, fontFamily: "'Cormorant Garamond', serif" }}>{name}</p>
+              {role && (
+                <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7b6ef2', margin: '6px 0 0' }}>{role}</p>
+              )}
+            </div>
           </div>
 
           {(albo || piva) && (
