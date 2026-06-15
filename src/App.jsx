@@ -388,7 +388,7 @@ export default function App() {
             style={{ color: 'rgba(255,255,255,0.82)' }}
           >
             Un percorso di psicoterapia psicodinamica accessibile a tutti.
-            Sedute individuali <strong style={{ color: '#ffffff' }}>online</strong> a <strong style={{ color: '#fca5a5' }}>tariffe accessibili</strong>.
+            Sedute <strong style={{ color: '#ffffff' }}>online</strong> a <strong style={{ color: '#fca5a5' }}>tariffe accessibili</strong>.
           </motion.p>
           <motion.div variants={itemSpring} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '20px' }}>
             <motion.a

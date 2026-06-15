@@ -234,7 +234,7 @@ export default function Header() {
           </a>
 
           {/* Desktop navigation */}
-          <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
+          <ul className="hidden sm:flex items-center gap-8 list-none m-0 p-0">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <motion.a
@@ -263,7 +263,7 @@ export default function Header() {
           </ul>
 
           {/* CTA button */}
-          <div className="hidden md:block">
+          <div className="hidden sm:block">
             <motion.a
               href="#prenota"
               onClick={(e) => handleNavClick(e, '#prenota')}
@@ -287,7 +287,7 @@ export default function Header() {
 
           {/* Hamburger (mobile) */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
+            className="sm:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
             onClick={() => setMenuOpen(p => !p)}
             aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
           >
@@ -321,7 +321,7 @@ export default function Header() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-              className="md:hidden overflow-hidden"
+              className="sm:hidden overflow-hidden"
               style={{ position: 'relative', zIndex: 1 }}
             >
               <ul className="flex flex-col items-center gap-4 pt-4 pb-5 list-none m-0 p-0">
