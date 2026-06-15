@@ -432,8 +432,8 @@ export default function App() {
           }} />
         }
       >
-        <ScrollReveal className="flex flex-col md:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
-          <motion.div variants={itemSpring} className="hidden md:block w-full md:w-1/2 shrink-0">
+        <ScrollReveal className="flex flex-col sm:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
+          <motion.div variants={itemSpring} className="hidden sm:block w-full sm:w-1/2 shrink-0">
             <CardImage
               src={photoCose}
               fallback={imgCose}
@@ -443,7 +443,7 @@ export default function App() {
               variant="green"
             />
           </motion.div>
-          <div className="flex flex-col w-full md:w-1/2 text-left">
+          <div className="flex flex-col w-full sm:w-1/2 text-left">
             <motion.p variants={itemSpring} className="text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ color: '#2563eb' }}>
               La psicoterapia psicodinamica
             </motion.p>
@@ -494,8 +494,8 @@ export default function App() {
           }} />
         }
       >
-        <ScrollReveal className="flex flex-col md:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
-          <motion.div variants={itemSpring} className="hidden md:block w-full md:w-1/2 shrink-0">
+        <ScrollReveal className="flex flex-col sm:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
+          <motion.div variants={itemSpring} className="hidden sm:block w-full sm:w-1/2 shrink-0">
             <CardImage
               src={photoComeFunziona}
               fallback={imgComeFunziona}
@@ -505,7 +505,7 @@ export default function App() {
               variant="orange"
             />
           </motion.div>
-          <div className="flex flex-col w-full md:w-1/2 text-left">
+          <div className="flex flex-col w-full sm:w-1/2 text-left">
             <motion.p variants={itemSpring} className="text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ color: '#4f6ae8' }}>
               Come funziona
             </motion.p>
@@ -523,15 +523,15 @@ export default function App() {
             <motion.div variants={itemSpring} className="flex flex-col gap-3" style={{ width: '100%' }}>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia individuale</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>40€ a seduta · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia di coppia</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia famigliare</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>Tariffe accessibili · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
               </div>
             </motion.div>
           </div>
@@ -553,8 +553,8 @@ export default function App() {
           }} />
         }
       >
-        <ScrollReveal className="flex flex-col md:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
-          <motion.div variants={itemSpring} className="hidden md:block w-full md:w-1/2 shrink-0">
+        <ScrollReveal className="flex flex-col sm:flex-row items-center gap-6 md:gap-12 max-w-5xl w-full">
+          <motion.div variants={itemSpring} className="hidden sm:block w-full sm:w-1/2 shrink-0">
             <CardImage
               src={photoTeam}
               fallback={imgTeam}
@@ -564,7 +564,7 @@ export default function App() {
               variant="indigo"
             />
           </motion.div>
-          <div className="flex flex-col w-full md:w-1/2 text-left">
+          <div className="flex flex-col w-full sm:w-1/2 text-left">
             <motion.p variants={itemSpring} className="text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ color: '#7b6ef2' }}>
               Chi siamo
             </motion.p>
@@ -576,7 +576,7 @@ export default function App() {
               Il Nostro Team
             </motion.h2>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-4" style={{ color: '#4b5563' }}>
-              Siamo 4 psicoterapeuti di formazione psicodinamica con più di dieci anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo. Crediamo che la qualità di un percorso terapeutico non debba essere un privilegio. La cura dovrebbe essere alla portata di chi ne ha bisogno.
+              Siamo psicoterapeuti di formazione psicodinamica con più di dieci anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo. Crediamo che la qualità di un percorso terapeutico non debba essere un privilegio. La cura dovrebbe essere alla portata di chi ne ha bisogno.
             </motion.p>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
               Il team vanta una consolidata esperienza clinica nei disturbi del comportamento alimentare, nelle dipendenze, nei disturbi dell&apos;umore, nei disturbi d&apos;ansia e ossessivi, nella presa in carico di quadri clinici complessi, inclusi i disturbi di personalità e le forme di psicopatologia grave.
