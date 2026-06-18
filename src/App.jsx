@@ -522,16 +522,6 @@ export default function App() {
               La psicoterapia psicodinamica lavora attraverso la parola e la relazione. Non si concentra solo sul sintomo, ma cerca di esplorare il significato che quel sintomo porta con sé. Il disagio non viene eliminato, ma <strong style={{ color: '#2f2f2f' }}>ascoltato, e attraverso quell&apos;ascolto, trasformato</strong>.{' '}
               <Link to="/cos-e" style={{ color: '#2563eb', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
             </motion.p>
-            <motion.div variants={itemSpring} className="flex gap-4 flex-wrap">
-              <motion.a
-                href="#prenota"
-                onClick={(e) => { e.preventDefault(); scrollToSection('#prenota') }}
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 text-white hover:opacity-80 transition-opacity"
-                style={{ borderRadius: '24px', background: '#2563eb' }}
-              >
-                Inizia il percorso
-              </motion.a>
-            </motion.div>
           </div>
         </ScrollReveal>
         <CardDecor color="#2563eb" />
