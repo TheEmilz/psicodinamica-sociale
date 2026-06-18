@@ -449,14 +449,6 @@ export default function App() {
           </motion.p>
           <motion.div variants={itemSpring} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '20px' }}>
             <motion.a
-              href="#prenota"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#prenota') }}
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 text-white hover:opacity-90 transition-opacity"
-              style={{ borderRadius: '24px', background: '#dc2626' }}
-            >
-              Prenota ora
-            </motion.a>
-            <motion.a
               href="#cos-e"
               onClick={(e) => { e.preventDefault(); scrollToSection('#cos-e') }}
               className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 hover:opacity-80 transition-opacity"
