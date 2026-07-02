@@ -4,6 +4,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import CoseDetail from './pages/CoseDetail.jsx'
+import AChiSiRivolge from './pages/AChiSiRivolge.jsx'
 import ComeFunzionaDetail from './pages/ComeFunzionaDetail.jsx'
 import LavoraConNoi from './pages/LavoraConNoi.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/cos-e" element={<CoseDetail />} />
+        <Route path="/a-chi-si-rivolge" element={<AChiSiRivolge />} />
         <Route path="/come-funziona" element={<ComeFunzionaDetail />} />
         <Route path="/lavora-con-noi" element={<LavoraConNoi />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

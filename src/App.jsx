@@ -9,6 +9,7 @@ import imgCose from './assets/img-cose.svg'
 import imgComeFunziona from './assets/img-come-funziona.svg'
 import imgTeam from './assets/img-team.svg'
 import photoCose from './assets/cose-new.png'
+import photoARivolge from './assets/a-chi-si-rivolge.png'
 import photoComeFunziona from './assets/come-funziona.png'
 import photoTeam from './assets/team.png'
 import photoSilvia from './assets/WhatsApp Image 2026-06-15 at 14.19.13.jpeg'
@@ -444,8 +445,7 @@ export default function App() {
             className="text-lg leading-relaxed mb-6 text-center max-w-md"
             style={{ color: 'rgba(255,255,255,0.82)' }}
           >
-            Un percorso di psicoterapia psicodinamica accessibile a tutti.
-            Sedute <strong style={{ color: '#ffffff' }}>online</strong> a <strong style={{ color: '#fca5a5' }}>tariffe accessibili</strong>.
+            Psicoterapia psicodinamica <strong style={{ color: '#ffffff' }}>online</strong>, pensata per essere davvero accessibile. Tariffe calmierate e <strong style={{ color: '#ffffff' }}>posti riservati</strong> <strong style={{ color: '#f472b6' }}>a tariffa sociale</strong> per chi attraversa un momento di difficoltà economica.
           </motion.p>
           <motion.div variants={itemSpring} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '20px' }}>
             <motion.a
@@ -519,11 +519,60 @@ export default function App() {
         <CardDecor color="#2563eb" />
       </StickyCard>
 
-      {/* ══ COME FUNZIONA — orange pill ══════════════════════════════════ */}
+      {/* ══ A CHI SI RIVOLGE — blu ═══════════════════════════════════════ */}
+      <StickyCard
+        id="a-chi-si-rivolge"
+        headerTheme="blue"
+        zIndex={3}
+        bgImage="linear-gradient(160deg, rgba(23,52,160,0.62) 0%, rgba(29,78,216,0.34) 55%, transparent 100%)"
+        blob={
+          <div aria-hidden="true" style={{
+            position: 'absolute', width: '500px', height: '500px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(37,99,235,0.13) 0%, transparent 65%)',
+            top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none',
+          }} />
+        }
+      >
+        <ScrollReveal className="flex flex-col sm:flex-row-reverse items-center gap-6 md:gap-12 max-w-5xl w-full">
+          <motion.div variants={itemSpring} className="hidden sm:block w-full sm:w-1/2 shrink-0">
+            <CardImage
+              src={photoARivolge}
+              fallback={imgCose}
+              alt="A chi si rivolge il percorso"
+              tint="#2563eb"
+              photoBg="#4FBAD6"
+              variant="indigo"
+            />
+          </motion.div>
+          <div className="flex flex-col w-full sm:w-1/2 text-left">
+            <motion.p variants={itemSpring} className="text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ color: '#2563eb' }}>
+              A chi si rivolge
+            </motion.p>
+            <motion.h2
+              variants={itemSpring}
+              className="text-2xl md:text-4xl font-medium leading-tight mb-4"
+              style={{ color: '#2f2f2f' }}
+            >
+              A chi si Rivolge<br />il Percorso
+            </motion.h2>
+            <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-3" style={{ color: '#4b5563' }}>
+              Il servizio si rivolge ad adulti e giovani adulti che stanno attraversando un momento di difficoltà o di sofferenza psichica — che si manifesti come ansia, fobie, attacchi di panico, depressione, disturbi alimentari, fatica nelle relazioni, o semplicemente come un senso di vuoto difficile da nominare.{' '}
+              <Link to="/a-chi-si-rivolge" className="md:hidden" style={{ color: '#2563eb', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
+            </motion.p>
+            <motion.p variants={itemSpring} className="hidden md:block text-sm leading-relaxed mb-6" style={{ color: '#4b5563' }}>
+              La psicoterapia offre uno spazio in cui la persona non si trova sola di fronte alla propria sofferenza: un contesto in cui è possibile sostare con ciò che esiste, permettere alle emozioni di prendere forma e diventare pensabili, e non costituire più una minaccia per il proprio benessere psichico.{' '}
+              <Link to="/a-chi-si-rivolge" style={{ color: '#2563eb', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
+            </motion.p>
+          </div>
+        </ScrollReveal>
+        <CardDecor color="#2563eb" />
+      </StickyCard>
+
+      {/* ══ COME FUNZIONA — orange pill ═════════════════════════ */}
       <StickyCard
         id="come-funziona"
         headerTheme="blue"
-        zIndex={3}
+        zIndex={4}
         bgImage="linear-gradient(160deg, rgba(40,56,168,0.64) 0%, rgba(55,80,210,0.34) 55%, transparent 100%)"
         blob={
           <div aria-hidden="true" style={{
@@ -562,15 +611,15 @@ export default function App() {
             <motion.div variants={itemSpring} className="flex flex-col gap-3" style={{ width: '100%' }}>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia individuale</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>40€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>35€ a seduta · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia di coppia</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>45€ a seduta · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia familiare</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>50€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>45€ a seduta · 50 minuti</p>
               </div>
             </motion.div>
           </div>
@@ -582,7 +631,7 @@ export default function App() {
       <StickyCard
         id="il-team"
         headerTheme="indigo"
-        zIndex={4}
+        zIndex={5}
         bgImage="linear-gradient(160deg, rgba(67,52,180,0.62) 0%, rgba(91,77,224,0.34) 55%, transparent 100%)"
         blob={
           <div aria-hidden="true" style={{
@@ -646,7 +695,7 @@ export default function App() {
           padding: '100px 16px 80px',
           position: 'relative',
           overflow: 'hidden',
-          zIndex: 5,
+          zIndex: 6,
           boxShadow: '0 -20px 60px rgba(0,0,0,0.12)',
         }}
       >
@@ -687,7 +736,7 @@ export default function App() {
           padding: '90px 16px 80px',
           position: 'relative',
           overflow: 'hidden',
-          zIndex: 6,
+          zIndex: 7,
           boxShadow: '0 -20px 60px rgba(0,0,0,0.10)',
         }}
       >
@@ -718,7 +767,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: '#f5f5f5', padding: '44px 24px 40px', textAlign: 'center', position: 'relative', zIndex: 7 }}>
+      <footer style={{ background: '#f5f5f5', padding: '44px 24px 40px', textAlign: 'center', position: 'relative', zIndex: 8 }}>
         <p style={{ margin: 0, fontSize: '12px', letterSpacing: '0.08em', color: '#9ca3af' }}>
           © 2026 Psicodinamica Sociale · <a href="#/privacy" style={{ color: '#9ca3af' }}>Privacy Policy</a> · <a href="#/note-legali" style={{ color: '#9ca3af' }}>Note Legali</a>
         </p>

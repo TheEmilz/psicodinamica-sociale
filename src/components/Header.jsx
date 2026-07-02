@@ -5,6 +5,7 @@ import { scrollToSection } from '../utils/scroll'
 const NAV_LINKS = [
   { label: 'HOME', href: '#home' },
   { label: "COS'È", href: '#cos-e' },
+  { label: 'A CHI SI RIVOLGE', href: '#a-chi-si-rivolge' },
   { label: 'COME FUNZIONA', href: '#come-funziona' },
   { label: 'IL TEAM', href: '#il-team' },
   { label: 'PRENOTA', href: '#prenota' },
