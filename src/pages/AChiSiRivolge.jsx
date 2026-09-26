@@ -45,7 +45,7 @@ export default function AChiSiRivolge() {
           style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
         >
           <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
-            Il servizio si rivolge ad adulti e giovani adulti in condizioni di difficoltà economica che stanno attraversando un momento di difficoltà o di sofferenza psichica — che si manifesti come ansia, fobie, attacchi di panico, depressione, disturbi alimentari, fatica nelle relazioni, o semplicemente come un senso di vuoto difficile da nominare.
+            Il servizio si rivolge ad adulti e giovani adulti in condizioni di difficoltà economica che stanno attraversando un momento di sofferenza psichica — che si manifesti come ansia, fobie, attacchi di panico, depressione, disturbi alimentari, fatica nelle relazioni, o semplicemente come un senso di vuoto difficile da nominare.
           </p>
           <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
             Accade frequentemente che il malessere non derivi da una vita oggettivamente compromessa, ma dall'impossibilità di elaborare ciò che si vive interiormente: stati affettivi confusi, emozioni intense e difficilmente tollerabili, esperienze che non trovano rappresentazione né parola. Paura, rabbia, dolore, confusione possono essere vissuti come qualcosa di insostenibile, da cui difendersi o allontanarsi. Gli eventi si susseguono senza che sia possibile una profonda comprensione, integrazione o che si possa attribuire loro un significato. In assenza di questa capacità elaborativa, la vita tende a ridursi a una forma di resistenza passiva piuttosto che a un'esistenza agita e sentita come propria.

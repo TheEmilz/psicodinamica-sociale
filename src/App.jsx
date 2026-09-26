@@ -556,7 +556,7 @@ export default function App() {
               A chi si Rivolge<br />il Percorso
             </motion.h2>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-3" style={{ color: '#4b5563' }}>
-              Il servizio si rivolge ad adulti e giovani adulti in condizioni di difficoltà economica che stanno attraversando un momento di difficoltà o di sofferenza psichica — che si manifesti come ansia, fobie, attacchi di panico, depressione, disturbi alimentari, fatica nelle relazioni, o semplicemente come un senso di vuoto difficile da nominare.{' '}
+              Il servizio si rivolge ad adulti e giovani adulti in condizioni di difficoltà economica che stanno attraversando un momento di sofferenza psichica — che si manifesti come ansia, fobie, attacchi di panico, depressione, disturbi alimentari, fatica nelle relazioni, o semplicemente come un senso di vuoto difficile da nominare.{' '}
               <Link to="/a-chi-si-rivolge" className="md:hidden" style={{ color: '#2563eb', fontWeight: 600, textDecoration: 'underline' }}>continua a leggere →</Link>
             </motion.p>
             <motion.p variants={itemSpring} className="hidden md:block text-sm leading-relaxed mb-6" style={{ color: '#4b5563' }}>
