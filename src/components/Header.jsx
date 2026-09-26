@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { label: 'A CHI SI RIVOLGE', href: '#a-chi-si-rivolge' },
   { label: 'COME FUNZIONA', href: '#come-funziona' },
   { label: 'IL TEAM', href: '#il-team' },
-  { label: 'PRENOTA', href: '#prenota' },
 ]
 
 function handleNavClick(e, href) {

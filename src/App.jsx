@@ -664,7 +664,7 @@ export default function App() {
               Il Nostro Team
             </motion.h2>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-4" style={{ color: '#4b5563' }}>
-              Siamo psicoterapeuti di formazione psicodinamica con più di dieci anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo. Crediamo che la qualità di un percorso terapeutico non debba essere un privilegio. La cura dovrebbe essere alla portata di chi ne ha bisogno, riserviamo posti a tariffa sociale per chi si trova in difficoltà economica. Le disponibilità sono limitate. Per verificare le disponibilità e prenotare il primo colloquio contatta direttamente il professionista scelto.
+              Siamo psicoterapeuti di formazione psicodinamica con più di quindici anni di esperienza clinica e un lungo percorso di analisi personale. Lavoriamo online, con cura e con metodo. Crediamo che la qualità di un percorso terapeutico non debba essere un privilegio. La cura dovrebbe essere alla portata di chi ne ha bisogno, riserviamo posti a tariffa sociale per chi si trova in difficoltà economica. Le disponibilità sono limitate. Per verificare le disponibilità e prenotare il primo colloquio contatta direttamente il professionista scelto.
             </motion.p>
             <motion.p variants={itemSpring} className="text-sm leading-relaxed mb-8" style={{ color: '#4b5563' }}>
               Il team vanta una consolidata esperienza clinica nei disturbi del comportamento alimentare, nelle dipendenze, nei disturbi dell&apos;umore, nei disturbi d&apos;ansia e ossessivi, nella presa in carico di quadri clinici complessi, inclusi i disturbi di personalità e le forme di psicopatologia grave.
@@ -701,9 +701,6 @@ export default function App() {
       >
         <div aria-hidden="true" style={{ position: 'absolute', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 65%)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
         <ScrollReveal className="flex flex-col items-center relative z-10 w-full max-w-xl">
-          <motion.p variants={itemSpring} className="text-xs font-semibold tracking-[0.3em] uppercase mb-6" style={{ color: '#8b5cf6' }}>
-            Inizia oggi
-          </motion.p>
           <motion.h2
             variants={itemSpring}
             className="text-4xl md:text-6xl font-medium leading-tight mb-4 text-center"

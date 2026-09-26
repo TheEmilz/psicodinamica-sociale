@@ -67,10 +67,6 @@ export default function ComeFunzionaDetail() {
           <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
             Il primo colloquio ha una funzione duplice. Da un lato, offre alla persona la possibilità di entrare in contatto con uno spazio terapeutico e valutare se sente di potersi fidare di chi ha di fronte. Dall'altro, consente al terapeuta di comprendere la natura del disagio, la storia della persona e le sue risorse, al fine di proporre il percorso più adeguato alle sue esigenze.
           </p>
-          <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
-            Al termine del colloquio, la persona è libera di scegliere: proseguire il percorso o prendersi del tempo per riflettere. Nessuna scelta è definitiva, e nessuna pressione viene esercitata in alcuna direzione. Qualora si decida di intraprendere un percorso terapeutico, la frequenza delle sedute viene concordata insieme, tenendo conto delle esigenze della persona e degli obiettivi del lavoro.
-          </p>
-
           {/* Price box */}
           <div style={{ padding: '24px 32px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.22)', textAlign: 'center', marginTop: '8px' }}>
             <p style={{ fontSize: '28px', fontWeight: 600, color: '#ea580c', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>
