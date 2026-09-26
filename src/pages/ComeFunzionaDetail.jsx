@@ -39,24 +39,6 @@ export default function ComeFunzionaDetail() {
           Come Funziona
         </motion.h1>
 
-        {/* Tre step */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}
-        >
-          {[
-            { num: '01', title: 'Primo colloquio', text: 'Uno spazio libero — non è richiesto sapere già cosa dire.' },
-            { num: '02', title: 'Concordiamo insieme', text: 'Frequenza delle sedute stabilita insieme, senza pressioni.' },
-            { num: '03', title: 'Inizi il percorso', text: 'Sedute online · 50 minuti. Disponibilità a tariffa sociale.' },
-          ].map(({ num, title, text }) => (
-            <div key={num} style={{ padding: '20px 16px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.13)' }}>
-              <div style={{ fontSize: '28px', fontWeight: 700, color: 'rgba(234,88,12,0.18)', fontFamily: "'Cormorant Garamond', serif", marginBottom: '8px' }}>{num}</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#1f2937', marginBottom: '6px' }}>{title}</div>
-              <div style={{ fontSize: '12px', color: '#6b7280', lineHeight: 1.5 }}>{text}</div>
-            </div>
-          ))}
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.12 }}
           style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
@@ -67,13 +49,6 @@ export default function ComeFunzionaDetail() {
           <p style={{ fontSize: '15px', lineHeight: 1.8, color: '#4b5563' }}>
             Il primo colloquio ha una funzione duplice. Da un lato, offre alla persona la possibilità di entrare in contatto con uno spazio terapeutico e valutare se sente di potersi fidare di chi ha di fronte. Dall'altro, consente al terapeuta di comprendere la natura del disagio, la storia della persona e le sue risorse, al fine di proporre il percorso più adeguato alle sue esigenze.
           </p>
-          {/* Price box */}
-          <div style={{ padding: '24px 32px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(234,88,12,0.22)', textAlign: 'center', marginTop: '8px' }}>
-            <p style={{ fontSize: '28px', fontWeight: 600, color: '#ea580c', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>
-              Tariffe accessibili · 50 minuti
-            </p>
-          </div>
-
           {/* CTA */}
           <div style={{ borderTop: '1px solid rgba(234,88,12,0.15)', paddingTop: '40px', marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px' }}>
             <Link
