@@ -56,12 +56,6 @@ export default function CoseDetail() {
 
           {/* CTA */}
           <div style={{ borderTop: '1px solid rgba(16,185,129,0.15)', paddingTop: '40px', marginTop: '8px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px' }}>
-            <Link
-              to="/#prenota"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', padding: '16px 32px', borderRadius: '24px', background: '#059669', color: '#fff', textDecoration: 'none' }}
-            >
-              Prenota il primo colloquio
-            </Link>
             <Link to="/" style={{ fontSize: '12px', color: '#9ca3af', textDecoration: 'none' }}>
               ← Torna alla home
             </Link>
