@@ -611,7 +611,7 @@ export default function App() {
             <motion.div variants={itemSpring} className="flex flex-col gap-3" style={{ width: '100%' }}>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia individuale</p>
-                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>35€ a seduta · 50 minuti</p>
+                <p style={{ fontSize: '22px', fontWeight: 600, color: '#4f6ae8', fontFamily: "'Cormorant Garamond', serif", margin: 0 }}>30€ a seduta · 50 minuti</p>
               </div>
               <div style={{ padding: '14px 20px', borderRadius: '20px', background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(79,106,232,0.22)' }}>
                 <p style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 2px' }}>Psicoterapia di coppia</p>
